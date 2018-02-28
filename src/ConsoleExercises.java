@@ -16,14 +16,15 @@ public class ConsoleExercises {
 //        System.out.println(userSentence);
 //
 
-        System.out.println("Enter a length: ");
+        System.out.print("Enter a length: ");
         String lengthStr = scan.next();
 
-        System.out.println("Enter a width: ");
+        System.out.print("Enter a width: ");
         String widthStr = scan.next();
 
-        System.out.println("Enter a height: ");
+        System.out.print("Enter a height: ");
         String heightStr = scan.next();
+        System.out.println("");
 
         double length = Double.parseDouble(lengthStr);
         double width = Double.parseDouble(widthStr);
