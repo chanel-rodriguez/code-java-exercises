@@ -43,6 +43,13 @@ public class Input {
         return scanner.nextInt();
 //        return (int) Math.ceil(Math.random()*100);
     }
+    public int getInt(String prompt){
+        System.out.print(prompt);
+        int userNum = scanner.nextInt();
+        scanner.nextLine();
+        return userNum;
+//        return (int) Math.ceil(Math.random()*100);
+    }
     public double getDouble(double min, double max){
         System.out.println("Enter a Double from " + min + " to " + max);
         double userDbl = scanner.nextDouble();
