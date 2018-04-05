@@ -39,17 +39,19 @@ public class Input {
 
     }
     public int getInt(){
-        System.out.println("Enter an integer: ");
-        return scanner.nextInt();
-//        return (int) Math.ceil(Math.random()*100);
+        try {
+            return Integer.valueOf(scanner.nextLine());
+        }catch (Exception e){
+            System.out.println("Invalid Input, try again: ");
+            return getInt();
+        }
     }
     public int getInt(String prompt){
-        System.out.print(prompt);
-        int userNum = scanner.nextInt();
-        scanner.nextLine();
-        return userNum;
-//        return (int) Math.ceil(Math.random()*100);
+        System.out.println(prompt);
+        return getInt();
     }
+
+
     public double getDouble(double min, double max){
         System.out.println("Enter a Double from " + min + " to " + max);
         double userDbl = scanner.nextDouble();
@@ -61,11 +63,17 @@ public class Input {
 
     }
     public double getDouble(){
-        System.out.println("Enter a Double: ");
-        return scanner.nextDouble();
+        try {
+            return Double.valueOf(scanner.nextLine());
+        }catch (Exception e){
+            System.out.println("NaN; enter a valid number!");
+            return getDouble();
+        }
+
     }
     public double getDouble(String prompt){
-        return Double.parseDouble(getString(prompt));
+        System.out.println(prompt);
+        return getDouble();
     }
 
 
@@ -73,5 +81,11 @@ public class Input {
         this.scanner = scanner;
     }
 
+
+    public static void main(String[] args) {
+        Input ask = new Input(new Scanner(System.in));
+        ask.getInt("Enter a num");
+        ask.getDouble("enter a dbl");
+    }
 
 }
